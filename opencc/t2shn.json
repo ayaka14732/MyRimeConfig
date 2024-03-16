@@ -1,0 +1,16 @@
+{
+  "name": "Traditional Chinese to Traditional Chinese (Sheoi Nup City standard)",
+  "segmentation": {
+    "type": "mmseg",
+    "dict": {
+      "type": "text",
+      "file": "ShnVariants.txt"
+    }
+  },
+  "conversion_chain": [{
+    "dict": {
+      "type": "text",
+      "file": "ShnVariants.txt"
+    }
+  }]
+}

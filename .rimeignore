@@ -1,0 +1,16 @@
+/root/*.yaml
+/root/essay.txt
+/root/essay-cantonese.txt
+!/root/jyut6ping3.custom.dict.yaml
+!/root/jyut6ping3.custom.yaml
+!/root/mydict.dict.yaml
+!/root/test.dict.yaml
+!/root/test.schema.yaml
+
+/opencc/*
+!/opencc/ShnVariants.txt
+!/opencc/t2hk.json
+!/opencc/t2jp.json
+!/opencc/t2s.json
+!/opencc/t2shn.json
+!/opencc/t2tw.json

@@ -1,0 +1,53 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.14.3
+  generator: "Weasel::UIStyleSettings"
+  modified_time: "Mon Apr 20 16:09:13 2020"
+  rime_version: 1.5.3
+patch:
+  "preset_color_schemes/bili":
+    author: "山前 <saeziae@gmail.com>"
+    back_color: 0xffffff
+    border_color: 0x9972fb
+    candidate_text_color: 0x000000
+    comment_text_color: 0x838383
+    hilited_back_color: 0xfb7299
+    hilited_candidate_back_color: 0x9972fb
+    hilited_candidate_text_color: 0xffffff
+    hilited_comment_text_color: 0xddd0fb
+    hilited_label_color: 0xddd0fb
+    hilited_text_color: 0xffffff
+    label_color: 0x838383
+    name: Bili
+    text_color: 0x000000
+  "preset_color_schemes/dark_pink":
+    author: "Ayaka <ayaka@mail.shn.hk>"
+    back_color: 0x332E28
+    border_color: 0x332E28
+    candidate_text_color: 0xF5F5F5
+    comment_text_color: 0x8A8682
+    #hilited_back_color: 0x9C3F5E
+    hilited_candidate_back_color: 0x5E3F9C
+    hilited_candidate_text_color: 0xffffff
+    hilited_comment_text_color: 0xddd0fb
+    #hilited_label_color: 0xddd0fb
+    hilited_text_color: 0xffffff
+    label_color: 0x9a75d5
+    name: "Dark Pink"
+    text_color: 0xF5F5F5
+  "style/color_scheme": dark_pink
+  "style/font_face": "Source Han Sans HC Light"
+  "style/font_point": 14
+  #"style/horizontal": true
+  "style/inline_preedit": true
+  "style/layout":
+    border_width: 0
+    candidate_spacing: 6
+    hilite_padding: 4
+    hilite_spacing: 4
+    margin_x: 10
+    margin_y: 10
+    min_height: 0
+    min_width: 0
+    round_corner: 8
+    spacing: 4

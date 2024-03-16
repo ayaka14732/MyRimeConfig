@@ -1,0 +1,36 @@
+patch:
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [ 中文, 西文 ]
+    - name: full_shape
+      states: [ 半角, 全角 ]
+    # - options: [ variants_hk, simplification ]
+    #   states: [ 香港, 大陆 ]
+    #   reset: 0
+    - options: [ trad_shn, simplification, simp_jp ]
+      states: [ 湫霧, 简体, 日本 ]
+      reset: 0
+    - name: emoji_suggestion
+      states: [ 無, 🈶 ]
+  "speller/algebra":
+    - derive/\d//                 # 忽略聲調
+    - xform/yu(?!ng|k)/y/         # 強制 yu -> y
+
+    - abbrev/^([a-z]).+$/$1/      # 首字母簡拼
+    - abbrev/^([gk]w|ng).+$/$1/   # 首2字母簡拼
+
+    - xform/1/v/                  # 陰平
+    - xform/4/vv/                 # 陽平
+    - xform/2/x/                  # 陰上
+    - xform/5/xx/                 # 陽上
+    - xform/3/q/                  # 陰去
+    - xform/6/qq/                 # 陽去
+  "engine/filters/@before 0": simplifier@trad_shn
+  "engine/filters/@after 0": simplifier@simp_jp
+  trad_shn:
+    option_name: trad_shn
+    opencc_config: t2shn.json
+  simp_jp:
+    option_name: simp_jp
+    opencc_config: t2jp.json
