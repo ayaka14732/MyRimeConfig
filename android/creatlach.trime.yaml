@@ -1,6 +1,6 @@
 # Trime style settings
 
-config_version: "6.1.7-20230717-m220"
+config_version: "7.0.1-20250305-m222"
 name: Creatlach
 author: Ayaka <ayaka@mail.shn.hk>
 
@@ -24,14 +24,18 @@ style:
   speech_opencc_config: none
   # 2. 字体
   # text_font: LokYuenMingHK_Regular_noeng.ttf
+  text_font: latin.ttf
   label_font: latin.ttf
   # candidate_font: LokYuenMingHK_Regular_noeng.ttf
   # comment_font: LokYuenMingHK_Regular_noeng.ttf
+  candidate_font: han.ttf
+  comment_font: comment.ttf
   hanb_font: HanaMinB.ttf
   latin_font: latin.ttf
   key_font: ModernExtended-T-OT-italic-letter-only.otf
   symbol_font: LokYuenMingHK_Regular_noeng.ttf
   preview_font: latin.ttf
+  long_text_font: comment.ttf  # 剪贴板等可能包含大段文本使用的字体
   # 3. 尺寸
   text_size: 16
   label_text_size: 22
@@ -56,9 +60,9 @@ style:
   vertical_correction: 0
   # 4. 悬浮窗口
   layout:
-    position: fixed
-    min_length: 4
-    max_length: 14
+    # position: fixed
+    # min_length: 4
+    # max_length: 14
     sticky_lines: 0
     max_entries: 0
     all_phrases: false
@@ -72,16 +76,33 @@ style:
     spacing: 0
     round_corner: 0
     alpha: 0xff
-    background: background.png
     elevation: 0
     movable: false
-  window:
-    - {composition: "%s", end: "", letter_spacing: 0, start: ""}
-    - {candidate: "%s", comment: "%s", end: "", label: "%s.", sep: "☁️️", start: "\n"}
+  # window:
+  #   - {composition: "%s", end: "", letter_spacing: 0, start: ""}
+  #   - {candidate: "%s", comment: "%s", end: "", label: "%s.", sep: "☁️️", start: "\n"}
   # 5. 其它
   background_dim_amount: 0.5
-  max_height: 400
-  min_height: 50
+  # 6. 新增
+  color_scheme: default  # 配色方案
+  keyboard_padding: 0  # 竖屏模式下，屏幕左右两侧与键盘的距离（曲面屏减少误触）
+  keyboard_padding_left: 0  # 竖屏屏模式下，左手键盘布局，屏幕左侧与键盘的距离
+  keyboard_padding_right: 40  # 竖屏屏模式下，左手键盘布局，屏幕右侧与键盘的距离
+  keyboard_padding_bottom: 0  # 竖屏模式下，屏幕下边缘与键盘的距离（避免误触发全面屏手势）
+  keyboard_padding_land: 120  # 横屏模式下，屏幕左右两侧与键盘的距离（避免横屏按键过度拉伸变形）
+  keyboard_padding_land_bottom: 0  # 横屏模式下，屏幕下侧与键盘的距离
+  keyboard_height: 180  # 锁定键盘高度，避免切换时键盘高度变化而造成闪烁
+  keyboard_height_land: 120  # 锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
+  key_long_text_border: 1
+  enter_label_mode: 0  # 是否使用App提供的ActionLabel内容作为Enter键的文本（由于多数App没有适配ActionLable，实际影响不大）。0不使用，1只使用actionlabel，2优先使用，3当其他方式没有获得label时才读取actionlabel
+  enter_labels:  # 定义 Enter 键的文本
+    go: 前往
+    done: 完成
+    next: 下个
+    pre:  上个
+    search: 搜索
+    send: 发送
+    default: Enter   # 定义默认 Enter 键的文本
 
 fallback_colors:
   __include: trime:/fallback_colors
@@ -140,6 +161,38 @@ preset_color_schemes:
     custom_middle_key_color: 0x3f000000       # semi-transparent
     custom_return_key_text_color: 0xa80000    # 紅色
     transparent: 0x00ffffff
+
+liquid_keyboard:
+  __include: trime:/liquid_keyboard
+
+android_keys:
+  __include: trime:/android_keys
+
+preset_keys:
+  __include: trime:/preset_keys
+  __patch:
+    Shift_L: {label: ⇪, send: Shift_L}
+    Return: {label: ↩, send: Return}
+    BackSpace: {label: ⇦, repeatable: true, send: BackSpace}
+    space: {preview: " ", repeatable: true, functional: false, send: space}
+    delimiter: {label: "'詞", send: apostrophe, functional: false}
+    Date: {label: 日期, send: function, command: date, option: yyyy'年'M'月'd'日'}
+    Left: {label: '◂', repeatable: true, send: Left}
+    Right: {label: '▸', repeatable: true, send: Right}
+    Control_L: {label: ⌃, send: Control_L}
+
+    key_null: {label: " ", text: "{VoidSymbol}"}
+    key_to_symbols: {label: ⚛, send: Eisu_toggle, select: kbSymbols_1}
+    key_to_symbols_1: {label: "@?#", send: Eisu_toggle, select: kbSymbols_1}
+    key_to_symbols_2: {label: S2, send: Eisu_toggle, select: kbSymbols_2}
+    key_to_emoji_1: {label: ">_<", send: Eisu_toggle, select: kbEmoji_1}
+    key_to_numbers: {label: "123", send: Eisu_toggle, select: kbNumbers}
+    key_back_to_default: {label: Back, send: Eisu_toggle, select: .default}
+
+    Left_word: {label: 刪詞, send: Control+Left}
+    Right_word: {label: 刪詞, send: Control+Right}
+    Home: {label: ⇱, send: Home}
+    End: {label: ⇲, send: End}
 
 preset_keyboards:
   default:
@@ -306,8 +359,8 @@ preset_keyboards:
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "⚢{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "⚣{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "⚤{key_back_to_default}"}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "⚥{key_back_to_default}"}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "⚧️{key_back_to_default}"}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "「"}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "」{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "♭{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "♮{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "♯{key_back_to_default}"}
@@ -358,15 +411,25 @@ preset_keyboards:
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "(*´ω｀*){key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "（<ゝω・）☆{key_back_to_default}"}
     # line 3
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "♡{key_back_to_default}"}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "_(:з」∠)_{key_back_to_default}"}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "♡{key_back_to_default}", width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "🥰", width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "🤣", width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "🥹", width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "👋🏻", width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "🙈", width: 8.333}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "(*/∇\\*){key_back_to_default}"}  # escape \
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "😆{key_back_to_default}"}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "😆", width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "😂", width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "😍", width: 8.333}
     # line 4
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "(｡･ω･｡){key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "(>д<){key_back_to_default}"}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "(・_ゝ・){key_back_to_default}"}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "👍🏻{key_back_to_default}"}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "😅", width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "☺️", width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "💋", width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "👍🏻", width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "🥳", width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "❤️", width: 8.333}
     # scroll bar at 4/4
     - {width: 1, click: key_null, height: 3}
     - {width: 83, click: key_null, key_back_color: comment_text_color}
@@ -482,33 +545,3 @@ preset_keyboards:
     - {swipe_down: Escape, width: 12, click: Right, swipe_left: Right_word, swipe_right: Right_word}
     - {swipe_down: Escape, width: 10, click: ᪫, label: ᪫, long_click: Theme_settings, swipe_up: Theme_settings, width: 10, key_text_offset_y: 4}
     - {swipe_down: Escape, width: 10, click: Return, composing: Page_Down, key_back_color: hilited_text_color, key_text_color: custom_return_key_text_color, round_corner: 1000, key_text_offset_y: -2}
-
-android_keys:
-  __include: trime:/android_keys
-
-preset_keys:
-  __include: trime:/preset_keys
-  __patch:
-    Shift_L: {label: ⇪, send: Shift_L}
-    Return: {label: ↩, send: Return}
-    BackSpace: {label: ⇦, repeatable: true, send: BackSpace}
-    space: {preview: " ", repeatable: true, functional: false, send: space}
-    delimiter: {label: "'詞", send: apostrophe, functional: false}
-    Date: {label: 日期, send: function, command: date, option: yyyy'年'M'月'd'日'}
-    Left: {label: '◂', repeatable: true, send: Left}
-    Right: {label: '▸', repeatable: true, send: Right}
-    Control_L: {label: ⌃, send: Control_L}
-
-    key_null: {label: " ", text: "{VoidSymbol}"}
-    key_to_symbols: {label: ⚛, send: Eisu_toggle, select: kbSymbols_1}
-    key_to_symbols_1: {label: "@?#", send: Eisu_toggle, select: kbSymbols_1}
-    key_to_symbols_2: {label: S2, send: Eisu_toggle, select: kbSymbols_2}
-    key_to_emoji_1: {label: ">_<", send: Eisu_toggle, select: kbEmoji_1}
-    key_to_numbers: {label: "123", send: Eisu_toggle, select: kbNumbers}
-    key_back_to_default: {label: Back, send: Eisu_toggle, select: .default}
-
-    Left_word: {label: 刪詞, send: Control+Left}
-    Right_word: {label: 刪詞, send: Control+Right}
-    Home: {label: ⇱, send: Home}
-    End: {label: ⇲, send: End}
-
