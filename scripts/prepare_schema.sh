@@ -6,7 +6,8 @@ prepare_schema () {
     cd tmp
     wget -q -O data.zip "https://github.com/$1/archive/refs/heads/$2.zip"
     unzip data.zip
-    mv */*.yaml */*.txt ../root/
+    mv */*.yaml ../root/
+    ls */*.txt 1> /dev/null 2>&1 && mv */*.txt ../root/
     [ -d */opencc ] && mv */opencc/* ../opencc/
     cd ..
     rm -rf tmp
@@ -15,7 +16,7 @@ prepare_schema () {
 prepare_schema rime/rime-cantonese main
 prepare_schema rime/rime-emoji master
 prepare_schema rime/rime-ipa master
-prepare_schema rime/rime-luna_pinyin main
+prepare_schema rime/rime-luna-pinyin master
 prepare_schema rime/rime-prelude master
 prepare_schema CanCLID/rime-loengfan main
 prepare_schema nk2028/rime-kyonh main

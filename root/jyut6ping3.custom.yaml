@@ -2,16 +2,17 @@ patch:
   switches:
     - name: ascii_mode
       reset: 0
-      states: [ 中文, 西文 ]
+      states: [ 粵文, 西文 ]
     - name: full_shape
-      states: [ 半角, 全角 ]
-    # - options: [ variants_hk, simplification ]
-    #   states: [ 香港, 大陆 ]
-    #   reset: 0
-    - options: [ trad_shn, simplification, simp_jp ]
-      states: [ 湫霧, 简体, 日本 ]
-      reset: 0
-    - name: emoji_suggestion
+      states: [ 半形, 全形 ]
+    - options: [ noop, trad_shn, simplification, simp_jp ]
+      states: [ 傳統, 湫霧, 简体, 日本 ]
+      reset: 1
+    - name: ascii_punct
+      states: [ 。，, ．， ]
+    - name: emoji_cantonese_suggestion
+      # 取消下行註釋（移除 # 號），預設啓動 emoji
+      reset: 1
       states: [ 無, 🈶 ]
   "speller/algebra":
     - derive/\d//                 # 忽略聲調
