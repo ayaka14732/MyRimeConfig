@@ -1,0 +1,16 @@
+{
+  "name": "Traditional Chinese to Traditional Chinese (“ChatWithSaeziae” variant, full mode)",
+  "segmentation": {
+    "type": "mmseg",
+    "dict": {
+      "type": "text",
+      "file": "CWSVariantsFull.txt"
+    }
+  },
+  "conversion_chain": [{
+    "dict": {
+      "type": "text",
+      "file": "CWSVariantsFull.txt"
+    }
+  }]
+}

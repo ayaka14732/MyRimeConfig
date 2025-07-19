@@ -5,15 +5,57 @@ patch:
       states: [ 粵文, 西文 ]
     - name: full_shape
       states: [ 半形, 全形 ]
-    - options: [ noop, trad_shn, simplification, simp_jp ]
-      states: [ 傳統, 湫霧, 简体, 日本 ]
+    - options: [ noop, trad_shn, simplification, trad_cwsf, simp_jp ]
+      states: [ 傳統, 湫霧, 简体, 異躰, 日本 ]
       reset: 1
     - name: ascii_punct
       states: [ 。，, ．， ]
+    - name: simp_kana
+      states: [ ひら, カタ ]
     - name: emoji_cantonese_suggestion
       # 取消下行註釋（移除 # 號），預設啓動 emoji
       reset: 1
       states: [ 無, 🈶 ]
+
+  engine:
+    processors:
+      - ascii_composer
+      - recognizer
+      - key_binder
+      - speller
+      - punctuator
+      - selector
+      - navigator
+      - express_editor
+    segmentors:
+      - ascii_segmentor
+      - matcher
+      - affix_segmentor@luna_pinyin
+      - affix_segmentor@loengfan
+      - affix_segmentor@stroke
+      - affix_segmentor@cangjie5
+      - affix_segmentor@swiftkana
+      - abc_segmentor
+      - punct_segmentor
+      - fallback_segmentor
+    translators:
+      - punct_translator
+      - script_translator
+      - script_translator@luna_pinyin
+      - script_translator@loengfan
+      - table_translator@stroke
+      - table_translator@cangjie5
+      - table_translator@swiftkana
+    filters:
+      - simplifier@emoji_cantonese_suggestion
+      - simplifier@trad_shn
+      - simplifier
+      - simplifier@trad_cwsf
+      - simplifier@simp_jp
+      - simplifier@simp_kana
+      - uniquifier
+      - reverse_lookup_filter@jyut6ping3_reverse_lookup
+
   "speller/algebra":
     - derive/\d//                 # 忽略聲調
     - xform/yu(?!ng|k)/y/         # 強制 yu -> y
@@ -27,11 +69,39 @@ patch:
     - xform/5/xx/                 # 陽上
     - xform/3/q/                  # 陰去
     - xform/6/qq/                 # 陽去
-  "engine/filters/@before 0": simplifier@trad_shn
-  "engine/filters/@after 0": simplifier@simp_jp
+
+  swiftkana:
+    tag: swiftkana
+    dictionary: swiftkana
+    enable_completion: false  # 若此處有效，則要去掉 speller/algebra 的 derive/^nnn$/nn/ 和 derive/^nn$/n/
+    enable_user_dict: false
+    prefix: "q"
+    suffix: ";"
+    tips: 〔仮名〕
+
   trad_shn:
     option_name: trad_shn
     opencc_config: t2shn.json
+
+  trad_cwsf:
+    option_name: trad_cwsf
+    opencc_config: t2cwsf.json
+
   simp_jp:
     option_name: simp_jp
     opencc_config: t2jp.json
+
+  simp_kana:
+    option_name: simp_kana
+    opencc_config: hira2kata.json
+    tags: [ swiftkana ]
+
+  recognizer:
+    import_preset: default
+    patterns:
+      punct: "^/([0-9]0?|[a-z]+)$"
+      luna_pinyin: "^`[a-z']*;?$"
+      loengfan: "^r[a-z']*;?$"
+      stroke: "^x[hspnz]*;?$"
+      cangjie5: "^v[a-z]*;?$"
+      swiftkana: "^q[a-z]*;?$"

@@ -15,6 +15,7 @@ prepare_schema () {
 
 prepare_schema rime/rime-cantonese main
 prepare_schema rime/rime-emoji master
+prepare_schema rime/rime-emoji-cantonese master
 prepare_schema rime/rime-ipa master
 prepare_schema rime/rime-luna-pinyin master
 prepare_schema rime/rime-prelude master

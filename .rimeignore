@@ -9,8 +9,10 @@
 
 /opencc/*
 !/opencc/ShnVariants.txt
-!/opencc/t2hk.json
-!/opencc/t2jp.json
+!/opencc/CWSVariantsFull.txt
 !/opencc/t2s.json
-!/opencc/t2shn.json
+!/opencc/t2hk.json
 !/opencc/t2tw.json
+!/opencc/t2jp.json
+!/opencc/t2shn.json
+!/opencc/t2cwsf.json
