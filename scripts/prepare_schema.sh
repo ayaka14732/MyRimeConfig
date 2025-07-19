@@ -28,5 +28,10 @@ prepare_schema sgalal/rime-symbolic master
 prepare_schema szc126/rime-liangfen main
 prepare_schema ayaka14732/rime-ayaka-v8 main
 
+# opencc configs
+for name in t2hk t2jp t2s t2tw; do
+    wget -q -P opencc/ "https://raw.githubusercontent.com/BYVoid/OpenCC/master/data/config/$name.json"
+done
+
 # e&d&s
 wget -q -nc -O root/essay.txt https://github.com/rime/rime-essay/raw/master/essay.txt
