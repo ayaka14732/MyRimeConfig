@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # schema
 prepare_schema () {
@@ -27,6 +27,9 @@ prepare_schema sgalal/rime-kunyomi master
 prepare_schema sgalal/rime-symbolic master
 prepare_schema szc126/rime-liangfen main
 prepare_schema ayaka14732/rime-ayaka-v8 main
+
+# delete recipe files
+rm -f root/*.recipe.yaml
 
 # opencc configs
 for name in t2hk t2jp t2s t2tw; do
