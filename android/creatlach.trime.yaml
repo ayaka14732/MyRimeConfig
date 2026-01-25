@@ -1,6 +1,6 @@
 # Trime style settings
 
-config_version: "7.0.1-20250305-m222"
+config_version: "7.0.2"  # 20260125，第 223 次修改
 name: Creatlach
 author: Ayaka <ayaka@mail.shn.hk>
 
@@ -21,8 +21,10 @@ style:
   reset_ascii_mode: false
   latin_locale: en_UK
   locale: zh_HK
-  speech_opencc_config: none
+  speech_opencc_config: none  # 将语音输入的结果经过 OpenCC 转换一下再上屏，可以实现简繁转换等效果
+
   # 2. 字体
+  # For font files, see https://github.com/ayaka14732/MyRimeConfig-dev (private repo)
   # text_font: LokYuenMingHK_Regular_noeng.ttf
   text_font: latin.ttf
   label_font: latin.ttf
@@ -36,6 +38,7 @@ style:
   symbol_font: LokYuenMingHK_Regular_noeng.ttf
   preview_font: latin.ttf
   long_text_font: comment.ttf  # 剪贴板等可能包含大段文本使用的字体
+
   # 3. 尺寸
   text_size: 16
   label_text_size: 22
@@ -58,6 +61,7 @@ style:
   horizontal_gap: 2
   vertical_gap: 0
   vertical_correction: 0
+
   # 4. 悬浮窗口
   layout:
     # position: fixed
@@ -81,13 +85,15 @@ style:
   # window:
   #   - {composition: "%s", end: "", letter_spacing: 0, start: ""}
   #   - {candidate: "%s", comment: "%s", end: "", label: "%s.", sep: "☁️️", start: "\n"}
+
   # 5. 其它
   background_dim_amount: 0.5
+
   # 6. 新增
   color_scheme: default  # 配色方案
   keyboard_padding: 0  # 竖屏模式下，屏幕左右两侧与键盘的距离（曲面屏减少误触）
-  keyboard_padding_left: 0  # 竖屏屏模式下，左手键盘布局，屏幕左侧与键盘的距离
-  keyboard_padding_right: 40  # 竖屏屏模式下，左手键盘布局，屏幕右侧与键盘的距离
+  keyboard_padding_left: 0  # 竖屏模式下，左手键盘布局，屏幕左侧与键盘的距离
+  keyboard_padding_right: 40  # 竖屏模式下，左手键盘布局，屏幕右侧与键盘的距离
   keyboard_padding_bottom: 0  # 竖屏模式下，屏幕下边缘与键盘的距离（避免误触发全面屏手势）
   keyboard_padding_land: 120  # 横屏模式下，屏幕左右两侧与键盘的距离（避免横屏按键过度拉伸变形）
   keyboard_padding_land_bottom: 0  # 横屏模式下，屏幕下侧与键盘的距离
@@ -234,7 +240,7 @@ preset_keyboards:
     - {swipe_down: Escape, click: o, long_click: '/', swipe_up: '/', swipe_left: ø, swipe_right: ø}
     - {swipe_down: Escape, click: i, long_click: '\', swipe_up: '\'}
     - {swipe_down: Escape, click: u, long_click: '<', swipe_up: '<'}
-    - {swipe_down: Escape, click: å, long_click: '>', swipe_up: '>'}
+    - {swipe_down: Escape, click: å, long_click: '>', swipe_up: '>', swipe_left: æ, swipe_right: æ}
     - {swipe_down: Escape, click: BackSpace, swipe_left: DeleteCandidate, swipe_right: DeleteCandidate}
     # line 4
     - {swipe_down: Escape, width: 10, click: key_to_symbols, height: 48}
@@ -365,7 +371,7 @@ preset_keyboards:
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "♮{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "♯{key_back_to_default}"}
     # line 3
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "⇒{key_back_to_default}"}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: VOICE_ASSIST}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "⇔{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "⇏{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "∞{key_back_to_default}"}
@@ -406,142 +412,150 @@ preset_keyboards:
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "| ω・`){key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "(/ω＼){key_back_to_default}"}
     # line 2
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "(〃∀〃){key_back_to_default}"}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "(・∀・){key_back_to_default}"}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "(*´ω｀*){key_back_to_default}"}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "（<ゝω・）☆{key_back_to_default}"}
-    # line 3
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "♡{key_back_to_default}", width: 8.333}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "🥰", width: 8.333}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "🤣", width: 8.333}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "🥹", width: 8.333}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "👋🏻", width: 8.333}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "🙈", width: 8.333}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "(*/∇\\*){key_back_to_default}"}  # escape \
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "😆", width: 8.333}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "😂", width: 8.333}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "😍", width: 8.333}
-    # line 4
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: ❤️, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 💋, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 👍🏻, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 👋🏻, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: ☀️, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: ✈️, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 😨, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 🙈, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 😆, width: 8.333}
+    # line 3
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "(｡･ω･｡){key_back_to_default}"}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "(>д<){key_back_to_default}"}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "😅", width: 8.333}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "☺️", width: 8.333}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "💋", width: 8.333}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "👍🏻", width: 8.333}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "🥳", width: 8.333}
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "❤️", width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 😘, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 🤗, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 😊, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: ☺️, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 🥰, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 🤩, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 😍, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 😅, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 😂, width: 8.333}
+    # line 4
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: "(*´ω｀*){key_back_to_default}"}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 🤣, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 😋, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 🥳, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 😲, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 🥹, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 😱, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 😭, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 😔, width: 8.333}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_2, swipe_left: key_null, click: 😴, width: 8.333}
     # scroll bar at 4/4
     - {width: 1, click: key_null, height: 3}
     - {width: 83, click: key_null, key_back_color: comment_text_color}
     - {width: 1}
     - {width: 14, click: key_null, key_back_color: hilited_comment_text_color, hilited_key_back_color: hilited_comment_text_color}
     - {width: 1}
-  tailuedirect:
-    name: 傣仂文直打
-    width: 9.090909
-    ascii_mode: 0
-    keys:
-    # 數字行
-    - {swipe_down: Escape, click: "!", swipe_left: "!", label: "ᩏ"}
-    - {swipe_down: Escape, click: "@", swipe_left: "@", label: "ᩐ"}
-    - {swipe_down: Escape, click: "#", swipe_left: "#", label: "ᩑ"}
-    - {swipe_down: Escape, click: "$", swipe_left: "$", label: "ᩒ"}
-    - {swipe_down: Escape, click: "%", swipe_left: "%", label: "◌᩺"}
-    - {swipe_down: Escape, click: "^", swipe_left: "^", label: "◌ᩚ"}
-    - {swipe_down: Escape, click: "&", swipe_left: "&", label: "◌ᩙ"}
-    - {swipe_down: Escape, click: "*", swipe_left: "*", label: "◌ᩝ"}
-    - {swipe_down: Escape, click: "(", swipe_left: "(", label: "◌ᩜ"}
-    - {swipe_down: Escape, click: ")", swipe_left: ")", label: "◌ᩞ"}
-    - {swipe_down: Escape, click: "_", swipe_left: "_", label: "◌ᩛ"}
-    # 數字行
-    - {swipe_down: Escape, click: "1", swipe_left: "1", label: "◌᩵"}
-    - {swipe_down: Escape, click: "2", swipe_left: "2", label: "◌ᩢ"}
-    - {swipe_down: Escape, click: "3", swipe_left: "3", label: "◌ᩳ"}
-    - {swipe_down: Escape, click: "4", swipe_left: "4", label: "◌ᩧ"}
-    - {swipe_down: Escape, click: "5", swipe_left: "5", label: "ᨳ"}
-    - {swipe_down: Escape, click: "6", swipe_left: "6", label: "ᨽ"}
-    - {swipe_down: Escape, click: "7", swipe_left: "7", label: "ᨣ"}
-    - {swipe_down: Escape, click: "8", swipe_left: "8", label: "ᨲ"}
-    - {swipe_down: Escape, click: "9", swipe_left: "9", label: "ᨧ"}
-    - {swipe_down: Escape, click: "0", swipe_left: "0", label: "ᨡ"}
-    - {swipe_down: Escape, click: "-", swipe_left: "-", label: "ᨩ"}
-    # 第一行
-    - {swipe_down: Escape, click: "Q", swipe_left: "Q", label: "ᩍ"}
-    - {swipe_down: Escape, click: "W", swipe_left: "W", label: "ᩎ"}
-    - {swipe_down: Escape, click: "E", swipe_left: "E", label: "ᨰ"}
-    - {swipe_down: Escape, click: "R", swipe_left: "R", label: "ᩡ"}
-    - {swipe_down: Escape, click: "T", swipe_left: "T", label: "◌ᩴ"}
-    - {swipe_down: Escape, click: "Y", swipe_left: "Y", label: "◌᩷"}
-    - {swipe_down: Escape, click: "U", swipe_left: "U", label: "◌᩸"}
-    - {swipe_down: Escape, click: "I", swipe_left: "I", label: "◌᩹"}
-    - {swipe_down: Escape, click: "O", swipe_left: "O", label: "ᨮ"}
-    - {swipe_down: Escape, click: "P", swipe_left: "P", label: "ᩓ"}
-    - {swipe_down: Escape, click: "{", swipe_left: "{", label: "◌ᩘ"}
-    # 第一行
-    - {swipe_down: Escape, click: "q", swipe_left: "q", label: "ᩕ"}
-    - {swipe_down: Escape, click: "w", swipe_left: "w", label: "ᩭ"}
-    - {swipe_down: Escape, click: "e", swipe_left: "e", label: "ᨻ"}
-    - {swipe_down: Escape, click: "r", swipe_left: "r", label: "ᨵ"}
-    - {swipe_down: Escape, click: "t", swipe_left: "t", label: "◌ᩫ"}
-    - {swipe_down: Escape, click: "y", swipe_left: "y", label: "◌ᩦ"}
-    - {swipe_down: Escape, click: "u", swipe_left: "u", label: "ᩁ"}
-    - {swipe_down: Escape, click: "i", swipe_left: "i", label: "ᨶ"}
-    - {swipe_down: Escape, click: "o", swipe_left: "o", label: "ᨿ"}
-    - {swipe_down: Escape, click: "p", swipe_left: "p", label: "ᨷ"}
-    - {swipe_down: Escape, click: "[", swipe_left: "[", label: "ᩃ"}
-    # 第二行
-    - {swipe_down: Escape, click: "A", swipe_left: "A", label: "ᩀ"}
-    - {swipe_down: Escape, click: "S", swipe_left: "S", label: "ᨥ"}
-    - {swipe_down: Escape, click: "D", swipe_left: "D", label: "ᨭ"}
-    - {swipe_down: Escape, click: "F", swipe_left: "F", label: "ᩰ"}
-    - {swipe_down: Escape, click: "G", swipe_left: "G", label: "ᨫ"}
-    - {swipe_down: Escape, click: "H", swipe_left: "H", label: "᩠"}
-    - {swipe_down: Escape, click: "J", swipe_left: "J", label: "ᩤ"}
-    - {swipe_down: Escape, click: "K", swipe_left: "K", label: "ᩔ"}
-    - {swipe_down: Escape, click: "L", swipe_left: "L", label: "ᨪ"}
-    - {swipe_down: Escape, click: ":", swipe_left: ":", label: "᪨"}
-    - {swipe_down: Escape, click: "\"", swipe_left: "\"", label: "᪩"}
-    # 第二行
-    - {swipe_down: Escape, click: "a", swipe_left: "a", label: "ᨼ"}
-    - {swipe_down: Escape, click: "s", swipe_left: "s", label: "ᩉ"}
-    - {swipe_down: Escape, click: "d", swipe_left: "d", label: "ᨠ"}
-    - {swipe_down: Escape, click: "f", swipe_left: "f", label: "ᨯ"}
-    - {swipe_down: Escape, click: "g", swipe_left: "g", label: "ᩮ"}
-    - {swipe_down: Escape, click: "h", swipe_left: "h", label: "᩠"}
-    - {swipe_down: Escape, click: "j", swipe_left: "j", label: "ᩣ"}
-    - {swipe_down: Escape, click: "k", swipe_left: "k", label: "ᩈ"}
-    - {swipe_down: Escape, click: "l", swipe_left: "l", label: "ᩅ"}
-    - {swipe_down: Escape, click: ";", swipe_left: ";", label: "ᨦ"}
-    - {swipe_down: Escape, click: "'", swipe_left: "'", label: "ᨤ"}
-    # 第三行
-    - {swipe_down: Escape, click: "Z", swipe_left: "Z", label: "ᨱ"}
-    - {swipe_down: Escape, click: "X", swipe_left: "X", label: "ᨬ"}
-    - {swipe_down: Escape, click: "C", swipe_left: "C", label: "ᨨ"}
-    - {swipe_down: Escape, click: "V", swipe_left: "V", label: "ᩌ"}
-    - {swipe_down: Escape, click: "B", swipe_left: "B", label: "◌᩻"}
-    - {swipe_down: Escape, click: "N", swipe_left: "N", label: "◌᩼"}
-    - {swipe_down: Escape, click: "M", swipe_left: "M", label: "ᩊ"}
-    - {swipe_down: Escape, click: "<", swipe_left: "<", label: "ᩆ"}
-    - {swipe_down: Escape, click: ">", swipe_left: ">", label: "ᩇ"}
-    - {swipe_down: Escape, click: ᨢ, label: ᨢ}
-    - {swipe_down: Escape, click: ᨺ, label: ᨺ}
-    # 第三行
-    - {swipe_down: Escape, click: "z", swipe_left: "z", label: "ᨹ"}
-    - {swipe_down: Escape, click: "x", swipe_left: "x", label: "ᨸ"}
-    - {swipe_down: Escape, click: "c", swipe_left: "c", label: "ᩯ"}
-    - {swipe_down: Escape, click: "v", swipe_left: "v", label: "ᩋ"}
-    - {swipe_down: Escape, click: "b", swipe_left: "b", label: "◌ᩥ"}
-    - {swipe_down: Escape, click: "n", swipe_left: "n", label: "◌ᩨ"}
-    - {swipe_down: Escape, click: "m", swipe_left: "m", label: "ᨴ"}
-    - {swipe_down: Escape, click: ",", swipe_left: ",", label: "ᨾ"}
-    - {swipe_down: Escape, click: ".", swipe_left: ".", label: "◌ᩖ"}
-    - {swipe_down: Escape, click: ᪧ, label: ᪧ}  # placeholder
-    - {swipe_down: Escape, click: BackSpace, swipe_left: DeleteCandidate, swipe_right: DeleteCandidate}
-    # 結尾行
-    - {swipe_down: Escape, width: 10, click: key_to_symbols, height: 48}
-    - {swipe_down: Escape, width: 10, click: "ᩲ", label: "ᩲ◌", long_click: Menu, swipe_up: Menu, key_text_offset_y: 4}
-    - {swipe_down: Escape, width: 12, click: Left, swipe_left: Left_word, swipe_right: Left_word}
-    - {swipe_down: Escape, width: 34, click: space, swipe_left: Up, swipe_right: Down, key_back_color: custom_middle_key_color, key_text_offset_y: 1}
-    - {swipe_down: Escape, width: 12, click: Right, swipe_left: Right_word, swipe_right: Right_word}
-    - {swipe_down: Escape, width: 10, click: ᪫, label: ᪫, long_click: Theme_settings, swipe_up: Theme_settings, width: 10, key_text_offset_y: 4}
-    - {swipe_down: Escape, width: 10, click: Return, composing: Page_Down, key_back_color: hilited_text_color, key_text_color: custom_return_key_text_color, round_corner: 1000, key_text_offset_y: -2}
+  # tailuedirect:
+  #   name: 傣仂文直打
+  #   width: 9.090909
+  #   ascii_mode: 0
+  #   keys:
+  #   # 數字行
+  #   - {swipe_down: Escape, click: "!", swipe_left: "!", label: "ᩏ"}
+  #   - {swipe_down: Escape, click: "@", swipe_left: "@", label: "ᩐ"}
+  #   - {swipe_down: Escape, click: "#", swipe_left: "#", label: "ᩑ"}
+  #   - {swipe_down: Escape, click: "$", swipe_left: "$", label: "ᩒ"}
+  #   - {swipe_down: Escape, click: "%", swipe_left: "%", label: "◌᩺"}
+  #   - {swipe_down: Escape, click: "^", swipe_left: "^", label: "◌ᩚ"}
+  #   - {swipe_down: Escape, click: "&", swipe_left: "&", label: "◌ᩙ"}
+  #   - {swipe_down: Escape, click: "*", swipe_left: "*", label: "◌ᩝ"}
+  #   - {swipe_down: Escape, click: "(", swipe_left: "(", label: "◌ᩜ"}
+  #   - {swipe_down: Escape, click: ")", swipe_left: ")", label: "◌ᩞ"}
+  #   - {swipe_down: Escape, click: "_", swipe_left: "_", label: "◌ᩛ"}
+  #   # 數字行
+  #   - {swipe_down: Escape, click: "1", swipe_left: "1", label: "◌᩵"}
+  #   - {swipe_down: Escape, click: "2", swipe_left: "2", label: "◌ᩢ"}
+  #   - {swipe_down: Escape, click: "3", swipe_left: "3", label: "◌ᩳ"}
+  #   - {swipe_down: Escape, click: "4", swipe_left: "4", label: "◌ᩧ"}
+  #   - {swipe_down: Escape, click: "5", swipe_left: "5", label: "ᨳ"}
+  #   - {swipe_down: Escape, click: "6", swipe_left: "6", label: "ᨽ"}
+  #   - {swipe_down: Escape, click: "7", swipe_left: "7", label: "ᨣ"}
+  #   - {swipe_down: Escape, click: "8", swipe_left: "8", label: "ᨲ"}
+  #   - {swipe_down: Escape, click: "9", swipe_left: "9", label: "ᨧ"}
+  #   - {swipe_down: Escape, click: "0", swipe_left: "0", label: "ᨡ"}
+  #   - {swipe_down: Escape, click: "-", swipe_left: "-", label: "ᨩ"}
+  #   # 第一行
+  #   - {swipe_down: Escape, click: "Q", swipe_left: "Q", label: "ᩍ"}
+  #   - {swipe_down: Escape, click: "W", swipe_left: "W", label: "ᩎ"}
+  #   - {swipe_down: Escape, click: "E", swipe_left: "E", label: "ᨰ"}
+  #   - {swipe_down: Escape, click: "R", swipe_left: "R", label: "ᩡ"}
+  #   - {swipe_down: Escape, click: "T", swipe_left: "T", label: "◌ᩴ"}
+  #   - {swipe_down: Escape, click: "Y", swipe_left: "Y", label: "◌᩷"}
+  #   - {swipe_down: Escape, click: "U", swipe_left: "U", label: "◌᩸"}
+  #   - {swipe_down: Escape, click: "I", swipe_left: "I", label: "◌᩹"}
+  #   - {swipe_down: Escape, click: "O", swipe_left: "O", label: "ᨮ"}
+  #   - {swipe_down: Escape, click: "P", swipe_left: "P", label: "ᩓ"}
+  #   - {swipe_down: Escape, click: "{", swipe_left: "{", label: "◌ᩘ"}
+  #   # 第一行
+  #   - {swipe_down: Escape, click: "q", swipe_left: "q", label: "ᩕ"}
+  #   - {swipe_down: Escape, click: "w", swipe_left: "w", label: "ᩭ"}
+  #   - {swipe_down: Escape, click: "e", swipe_left: "e", label: "ᨻ"}
+  #   - {swipe_down: Escape, click: "r", swipe_left: "r", label: "ᨵ"}
+  #   - {swipe_down: Escape, click: "t", swipe_left: "t", label: "◌ᩫ"}
+  #   - {swipe_down: Escape, click: "y", swipe_left: "y", label: "◌ᩦ"}
+  #   - {swipe_down: Escape, click: "u", swipe_left: "u", label: "ᩁ"}
+  #   - {swipe_down: Escape, click: "i", swipe_left: "i", label: "ᨶ"}
+  #   - {swipe_down: Escape, click: "o", swipe_left: "o", label: "ᨿ"}
+  #   - {swipe_down: Escape, click: "p", swipe_left: "p", label: "ᨷ"}
+  #   - {swipe_down: Escape, click: "[", swipe_left: "[", label: "ᩃ"}
+  #   # 第二行
+  #   - {swipe_down: Escape, click: "A", swipe_left: "A", label: "ᩀ"}
+  #   - {swipe_down: Escape, click: "S", swipe_left: "S", label: "ᨥ"}
+  #   - {swipe_down: Escape, click: "D", swipe_left: "D", label: "ᨭ"}
+  #   - {swipe_down: Escape, click: "F", swipe_left: "F", label: "ᩰ"}
+  #   - {swipe_down: Escape, click: "G", swipe_left: "G", label: "ᨫ"}
+  #   - {swipe_down: Escape, click: "H", swipe_left: "H", label: "᩠"}
+  #   - {swipe_down: Escape, click: "J", swipe_left: "J", label: "ᩤ"}
+  #   - {swipe_down: Escape, click: "K", swipe_left: "K", label: "ᩔ"}
+  #   - {swipe_down: Escape, click: "L", swipe_left: "L", label: "ᨪ"}
+  #   - {swipe_down: Escape, click: ":", swipe_left: ":", label: "᪨"}
+  #   - {swipe_down: Escape, click: "\"", swipe_left: "\"", label: "᪩"}
+  #   # 第二行
+  #   - {swipe_down: Escape, click: "a", swipe_left: "a", label: "ᨼ"}
+  #   - {swipe_down: Escape, click: "s", swipe_left: "s", label: "ᩉ"}
+  #   - {swipe_down: Escape, click: "d", swipe_left: "d", label: "ᨠ"}
+  #   - {swipe_down: Escape, click: "f", swipe_left: "f", label: "ᨯ"}
+  #   - {swipe_down: Escape, click: "g", swipe_left: "g", label: "ᩮ"}
+  #   - {swipe_down: Escape, click: "h", swipe_left: "h", label: "᩠"}
+  #   - {swipe_down: Escape, click: "j", swipe_left: "j", label: "ᩣ"}
+  #   - {swipe_down: Escape, click: "k", swipe_left: "k", label: "ᩈ"}
+  #   - {swipe_down: Escape, click: "l", swipe_left: "l", label: "ᩅ"}
+  #   - {swipe_down: Escape, click: ";", swipe_left: ";", label: "ᨦ"}
+  #   - {swipe_down: Escape, click: "'", swipe_left: "'", label: "ᨤ"}
+  #   # 第三行
+  #   - {swipe_down: Escape, click: "Z", swipe_left: "Z", label: "ᨱ"}
+  #   - {swipe_down: Escape, click: "X", swipe_left: "X", label: "ᨬ"}
+  #   - {swipe_down: Escape, click: "C", swipe_left: "C", label: "ᨨ"}
+  #   - {swipe_down: Escape, click: "V", swipe_left: "V", label: "ᩌ"}
+  #   - {swipe_down: Escape, click: "B", swipe_left: "B", label: "◌᩻"}
+  #   - {swipe_down: Escape, click: "N", swipe_left: "N", label: "◌᩼"}
+  #   - {swipe_down: Escape, click: "M", swipe_left: "M", label: "ᩊ"}
+  #   - {swipe_down: Escape, click: "<", swipe_left: "<", label: "ᩆ"}
+  #   - {swipe_down: Escape, click: ">", swipe_left: ">", label: "ᩇ"}
+  #   - {swipe_down: Escape, click: ᨢ, label: ᨢ}
+  #   - {swipe_down: Escape, click: ᨺ, label: ᨺ}
+  #   # 第三行
+  #   - {swipe_down: Escape, click: "z", swipe_left: "z", label: "ᨹ"}
+  #   - {swipe_down: Escape, click: "x", swipe_left: "x", label: "ᨸ"}
+  #   - {swipe_down: Escape, click: "c", swipe_left: "c", label: "ᩯ"}
+  #   - {swipe_down: Escape, click: "v", swipe_left: "v", label: "ᩋ"}
+  #   - {swipe_down: Escape, click: "b", swipe_left: "b", label: "◌ᩥ"}
+  #   - {swipe_down: Escape, click: "n", swipe_left: "n", label: "◌ᩨ"}
+  #   - {swipe_down: Escape, click: "m", swipe_left: "m", label: "ᨴ"}
+  #   - {swipe_down: Escape, click: ",", swipe_left: ",", label: "ᨾ"}
+  #   - {swipe_down: Escape, click: ".", swipe_left: ".", label: "◌ᩖ"}
+  #   - {swipe_down: Escape, click: ᪧ, label: ᪧ}  # placeholder
+  #   - {swipe_down: Escape, click: BackSpace, swipe_left: DeleteCandidate, swipe_right: DeleteCandidate}
+  #   # 結尾行
+  #   - {swipe_down: Escape, width: 10, click: key_to_symbols, height: 48}
+  #   - {swipe_down: Escape, width: 10, click: "ᩲ", label: "ᩲ◌", long_click: Menu, swipe_up: Menu, key_text_offset_y: 4}
+  #   - {swipe_down: Escape, width: 12, click: Left, swipe_left: Left_word, swipe_right: Left_word}
+  #   - {swipe_down: Escape, width: 34, click: space, swipe_left: Up, swipe_right: Down, key_back_color: custom_middle_key_color, key_text_offset_y: 1}
+  #   - {swipe_down: Escape, width: 12, click: Right, swipe_left: Right_word, swipe_right: Right_word}
+  #   - {swipe_down: Escape, width: 10, click: ᪫, label: ᪫, long_click: Theme_settings, swipe_up: Theme_settings, width: 10, key_text_offset_y: 4}
+  #   - {swipe_down: Escape, width: 10, click: Return, composing: Page_Down, key_back_color: hilited_text_color, key_text_color: custom_return_key_text_color, round_corner: 1000, key_text_offset_y: -2}
