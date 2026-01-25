@@ -1,9 +1,9 @@
 from fnmatch import fnmatch
 import os
 
-def load_ignore_patterns(filepath: str) -> list[str]:
-    positive_patterns = []
-    negative_patterns = ['/.git']
+def load_ignore_patterns(filepath: str) -> tuple[list[str], list[str]]:
+    positive_patterns: list[str] = []
+    negative_patterns: list[str] = ['/.git']
 
     with open(filepath, 'r') as f:
         for line in f:
