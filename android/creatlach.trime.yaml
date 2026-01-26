@@ -1,6 +1,6 @@
 # Trime style settings
 
-config_version: "7.0.2"  # 20260125，第 223 次修改
+config_version: "7.0.3"  # 20260126，第 224 次修改
 name: Creatlach
 author: Ayaka <ayaka@mail.shn.hk>
 
@@ -204,17 +204,17 @@ preset_keyboards:
   default:
     name: 26键默认布局
     ascii_mode: 0
-    height: 57
+    # height: 56  # 不知為何寫在此處不生效
     width: 10
     key_symbol_offset_y: -4
     key_text_offset_y: 2
     keys:
     # line 1
-    - {swipe_down: Escape, click: f, long_click: "1", swipe_up: "1"}
+    - {swipe_down: Escape, click: f, long_click: "1", swipe_up: "1", height: 56}
     - {swipe_down: Escape, click: w, long_click: "2", swipe_up: "2"}
     - {swipe_down: Escape, click: b, long_click: "3", swipe_up: "3"}
     - {swipe_down: Escape, click: p, long_click: "4", swipe_up: "4"}
-    - {swipe_down: Escape, click: h, long_click: "5", swipe_up: "5"}
+    - {swipe_down: Escape, click: h, long_click: "5", swipe_up: "5", swipe_left: VOICE_ASSIST, swipe_right: VOICE_ASSIST}
     - {swipe_down: Escape, click: k, long_click: "6", swipe_up: "6"}
     - {swipe_down: Escape, click: a, long_click: "7", swipe_up: "7", swipe_left: select_all, swipe_right: select_all}
     - {swipe_down: Escape, click: v, long_click: "8", swipe_up: "8", swipe_left: paste, swipe_right: paste}
@@ -222,7 +222,7 @@ preset_keyboards:
     - {swipe_down: Escape, click: q, long_click: "0", swipe_up: "0"}
     # line 2
     - {swipe_down: Escape, width: 5}
-    - {swipe_down: Escape, click: j, long_click: "`", swipe_up: "`", swipe_left: CommitComment, swipe_right: CommitComment}
+    - {swipe_down: Escape, click: j, long_click: "`", swipe_up: "`", swipe_left: CommitComment, swipe_right: CommitComment, height: 56}
     - {swipe_down: Escape, click: t, long_click: "!", swipe_up: "!", swipe_left: Time, swipe_right: Time}
     - {swipe_down: Escape, click: d, long_click: "@", swipe_up: "@", swipe_left: Date, swipe_right: Date}
     - {swipe_down: Escape, click: s, long_click: "~", swipe_up: "~"}
@@ -232,7 +232,7 @@ preset_keyboards:
     - {swipe_down: Escape, click: y, long_click: "(", swipe_up: "(", swipe_left: redo, swipe_right: redo}
     - {swipe_down: Escape, click: x, long_click: ")", swipe_up: ")", swipe_left: cut, swipe_right: cut}
     # line 3
-    - {swipe_down: Escape, click: Shift_L, composing: delimiter, key_text_offset_y: -2}
+    - {swipe_down: Escape, click: Shift_L, composing: delimiter, key_text_offset_y: -2, height: 56}
     - {swipe_down: Escape, click: l, long_click: "$", swipe_up: "$"}
     - {swipe_down: Escape, click: c, long_click: "?", swipe_up: "?", swipe_left: copy, swipe_right: copy}
     - {swipe_down: Escape, click: z, long_click: "-", swipe_up: "-", swipe_left: undo, swipe_right: undo}
@@ -243,7 +243,7 @@ preset_keyboards:
     - {swipe_down: Escape, click: å, long_click: '>', swipe_up: '>', swipe_left: æ, swipe_right: æ}
     - {swipe_down: Escape, click: BackSpace, swipe_left: DeleteCandidate, swipe_right: DeleteCandidate}
     # line 4
-    - {swipe_down: Escape, width: 10, click: key_to_symbols, height: 48}
+    - {swipe_down: Escape, width: 10, click: key_to_symbols, height: 51}
     - {swipe_down: Escape, width: 10, click: ",", label: "，", long_click: Menu, swipe_up: Menu, key_text_offset_y: 4}
     - {swipe_down: Escape, width: 12, click: Left, swipe_left: Left_word, swipe_right: Left_word}
     - {swipe_down: Escape, width: 34, click: space, swipe_left: Up, swipe_right: Down, key_back_color: custom_middle_key_color, key_text_offset_y: 1}
@@ -371,7 +371,7 @@ preset_keyboards:
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "♮{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "♯{key_back_to_default}"}
     # line 3
-    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: VOICE_ASSIST}
+    - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "⇒{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "⇔{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "⇏{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_to_symbols_1, swipe_left: key_to_emoji_1, click: "∞{key_back_to_default}"}
