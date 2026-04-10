@@ -7,3 +7,18 @@
 /tmp
 
 /android/fonts
+
+/root/*.yaml
+/root/essay.txt
+/root/essay-cantonese.txt
+!/root/jyut6ping3.custom.dict.yaml
+!/root/jyut6ping3.custom.yaml
+!/root/mydict.dict.yaml
+!/root/test.dict.yaml
+!/root/test.schema.yaml
+
+/opencc/*
+!/opencc/ShnVariants.txt
+!/opencc/CWSVariantsFull.txt
+!/opencc/t2shn.json
+!/opencc/t2cwsf.json
