@@ -18,9 +18,18 @@ This ensures the produced configuration files are always the latest version and 
 
 ## Build Method
 
+Linux/macOS:
+
 ```sh
 scripts/prepare_schema.sh
 scripts/patch.sh
+```
+
+Windows Command Prompt:
+
+```cmd
+scripts\prepare_schema.cmd
+scripts\patch.cmd
 ```
 
 ## Update Method
@@ -57,9 +66,18 @@ After clearing, execute the build commands mentioned above to update.
 
 ## 構建方法
 
+Linux/macOS：
+
 ```sh
 scripts/prepare_schema.sh
 scripts/patch.sh
+```
+
+Windows 命令提示字元：
+
+```cmd
+scripts\prepare_schema.cmd
+scripts\patch.cmd
 ```
 
 ## 更新方法

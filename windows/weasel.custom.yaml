@@ -36,9 +36,9 @@ patch:
     name: "Dark Pink"
     text_color: 0xF5F5F5
   "style/color_scheme": dark_pink
-  "style/font_face": "Source Han Sans HC Light"
+  # "style/font_face": "Source Han Sans HC Light"
   "style/font_point": 14
-  #"style/horizontal": true
+  "style/horizontal": true
   "style/inline_preedit": true
   "style/layout":
     border_width: 0
