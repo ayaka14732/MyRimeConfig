@@ -1,6 +1,6 @@
 # Trime style settings
 
-config_version: "7.0.8"  # 20260824，第 229 次修改
+config_version: "7.0.13"  # 20260824，第 234 次修改
 name: Creatlach
 author: Ayaka <ayaka@mail.shn.hk>
 
@@ -8,7 +8,9 @@ style:
   # 1. 功能
   auto_caps: false
   candidate_use_cursor: true
-  comment_position: top
+  comment_position: overlay
+  comment_vertical_bias: 0.25
+  candidate_text_vertical_bias: 0.75
   horizontal: true
   keyboards:
     - .default
@@ -35,9 +37,9 @@ style:
   candidate_padding: 2
   candidate_spacing: 8
   candidate_text_size: 18
-  candidate_view_height: 30  # 候选区高度
-  comment_text_size: 17
-  comment_height: 20  # 候选注释区高度
+  candidate_view_height: 50  # overlay 同时容纳上方注音与下方候选字
+  comment_text_size: 16
+  comment_height: 0  # 注音已包含在候选项内，不在候选栏外重复预留高度
   key_height: 54
   key_width: 10.0
   key_text_size: 23
