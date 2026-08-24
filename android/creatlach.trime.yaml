@@ -1,6 +1,6 @@
 # Trime style settings
 
-config_version: "7.0.13"  # 20260824，第 234 次修改
+config_version: "7.0.15"  # 20260824，第 236 次修改
 name: Creatlach
 author: Ayaka <ayaka@mail.shn.hk>
 
@@ -14,7 +14,7 @@ style:
   horizontal: true
   keyboards:
     - .default
-    - kbNumbers
+    - number
     - kbSymbols_1
     - kbSymbols_2
     - kbEmoji_1
@@ -199,7 +199,7 @@ preset_keys:
     key_to_symbols_1: {label: "@?#", send: Eisu_toggle, select: kbSymbols_1}
     key_to_symbols_2: {label: S2, send: Eisu_toggle, select: kbSymbols_2}
     key_to_emoji_1: {label: ">_<", send: Eisu_toggle, select: kbEmoji_1}
-    key_to_numbers: {label: "123", send: Eisu_toggle, select: kbNumbers}
+    key_to_numbers: {label: "123", send: Eisu_toggle, select: number}
     key_back_to_default: {label: Back, send: Eisu_toggle, select: .default}
 
     Left_word: {label: 刪詞, send: Control+Left}
@@ -257,10 +257,10 @@ preset_keyboards:
     - {swipe_down: Escape, width: 12, click: Right, swipe_left: Right_word, swipe_right: Right_word}
     - {swipe_down: Escape, width: 10, click: ".", label: "。", long_click: Theme_settings, swipe_up: Theme_settings, width: 10, key_text_offset_y: 4}
     - {swipe_down: Escape, width: 10, click: Return, composing: Page_Down, key_back_color: hilited_text_color, key_text_color: custom_return_key_text_color, round_corner: 1000, key_text_offset_y: -2}
-  kbNumbers:
+  number:
     name: Keyboard Numbers
     ascii_mode: 0
-    width: 25
+    width: 20.833333
     key_text_size: 18
     keys:
     # line 1
@@ -269,24 +269,28 @@ preset_keyboards:
     - {swipe_down: key_back_to_default, click: "2", swipe_left: "²{key_back_to_default}", swipe_right: "₂{key_back_to_default}"}
     - {swipe_down: key_back_to_default, click: "3", swipe_left: "³{key_back_to_default}", swipe_right: "₃{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_null, swipe_left: key_to_symbols_1, click: "-", width: 12.5}
+    - {swipe_down: key_back_to_default, swipe_right: key_null, swipe_left: key_to_symbols_1, click: "=", width: 12.5}
     # line 2
     - {swipe_down: key_back_to_default, swipe_right: key_null, swipe_left: key_to_symbols_1, click: "/", width: 12.5}
     - {swipe_down: key_back_to_default, click: "4", swipe_left: "⁴{key_back_to_default}", swipe_right: "₄{key_back_to_default}"}
     - {swipe_down: key_back_to_default, click: "5", swipe_left: "⁵{key_back_to_default}", swipe_right: "₅{key_back_to_default}"}
     - {swipe_down: key_back_to_default, click: "6", swipe_left: "⁶{key_back_to_default}", swipe_right: "₆{key_back_to_default}"}
-    - {swipe_down: key_back_to_default, swipe_right: key_null, swipe_left: key_to_symbols_1, click: "%", width: 12.5}
+    - {swipe_down: key_back_to_default, swipe_right: key_null, swipe_left: key_to_symbols_1, click: "(", width: 12.5}
+    - {swipe_down: key_back_to_default, swipe_right: key_null, swipe_left: key_to_symbols_1, click: ")", width: 12.5}
     # line 3
     - {swipe_down: key_back_to_default, swipe_right: key_null, swipe_left: key_to_symbols_1, click: ",", width: 12.5}
     - {swipe_down: key_back_to_default, click: "7", swipe_left: "⁷{key_back_to_default}", swipe_right: "₇{key_back_to_default}"}
     - {swipe_down: key_back_to_default, click: "8", swipe_left: "⁸{key_back_to_default}", swipe_right: "₈{key_back_to_default}"}
     - {swipe_down: key_back_to_default, click: "9", swipe_left: "⁹{key_back_to_default}", swipe_right: "₉{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_null, swipe_left: key_to_symbols_1, click: ".", width: 12.5}
-    # line 3
+    - {swipe_down: key_back_to_default, swipe_right: key_null, swipe_left: key_to_symbols_1, click: "%", width: 12.5}
+    # line 4
     - {swipe_down: key_back_to_default, swipe_right: key_null, swipe_left: key_to_symbols_1, click: ":", width: 12.5}
     - {swipe_down: key_back_to_default, swipe_right: key_null, swipe_left: key_to_symbols_1, click: "*"}
     - {swipe_down: key_back_to_default, click: "0", swipe_left: "⁰{key_back_to_default}", swipe_right: "₀{key_back_to_default}"}
     - {swipe_down: key_back_to_default, swipe_right: key_null, swipe_left: key_to_symbols_1, click: "#"}
     - {swipe_down: key_back_to_default, swipe_right: key_null, swipe_left: key_to_symbols_1, click: BackSpace, width: 12.5}
+    - {swipe_down: key_back_to_default, click: Return, width: 12.5, key_back_color: hilited_text_color, key_text_color: custom_return_key_text_color, round_corner: 1000, key_text_offset_y: -2}
     # scroll bar at 1/4
     - {width: 1, click: key_null, height: 3}
     - {width: 14, click: key_null, key_back_color: hilited_comment_text_color, hilited_key_back_color: hilited_comment_text_color}
