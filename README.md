@@ -32,6 +32,25 @@ scripts\prepare_schema.cmd
 scripts\patch.cmd
 ```
 
+## Trime (Android) Setup
+
+After building the configuration, a fresh installation of Trime still needs the following one-time setup:
+
+1. Install an official Trime release or nightly build, enable Trime in Android's input-method settings, and select it as the default input method.
+2. Open **Trime > Profile > User data directory**. This configuration uses `/storage/emulated/0/rime` (also written as `/sdcard/rime`). Copy:
+   - everything under `root/` to the user data directory;
+   - everything under `opencc/` to `<user-data-directory>/opencc/`;
+   - `android/creatlach.trime.yaml` to `<user-data-directory>/creatlach.trime.yaml`;
+   - the private font files to `<user-data-directory>/fonts/`: `HanaMinB.ttf`, `ModernExtended-T-OT-italic-letter-only.otf`, and `LokYuenMingHK_Regular_noeng.ttf`.
+3. Tap **Deploy** (the refresh button in Trime's top app bar). Select the desired input schemata under **Schemata** if they have not already been restored by `default.custom.yaml`.
+4. Open **Theme** and set:
+   - **Themes**: `Creatlach`;
+   - **Colors**: `Material Dark / Dubh` (select `Material Light / Liath` manually if a light palette is desired);
+   - **Follow system day/night color**: enabled. Creatlach links `Material Dark / Dubh` and `Material Light / Liath` with `dark_scheme` and `light_scheme`, so Trime can switch palettes with the system.
+5. On a phone using gesture navigation, open **Advanced** and enable **Ignore system gesture insets**. This avoids adding the system gesture safe inset on top of Creatlach's bottom spacing. Leave it disabled if the device needs that safety area.
+
+After setup, open any text field and check that the custom key font is loaded, candidate comments appear above the candidates, and the quick bar contains the persistent `粵文`/`西文` switch. After later configuration updates, copy the changed files to the same user directory and deploy again. Trime app updates normally preserve its preferences; a clean installation requires the theme and advanced options above to be selected again.
+
 ## Update Method
 
 First, execute the following command to clear the files from other GitHub projects:
@@ -79,6 +98,25 @@ Windows 命令提示字元：
 scripts\prepare_schema.cmd
 scripts\patch.cmd
 ```
+
+## Trime（Android）安裝後設定
+
+構建配置後，全新安裝的 Trime 仍需進行以下一次性設定：
+
+1. 安裝 Trime 官方正式版或 nightly 版，在 Android 的輸入法設定中啟用 Trime，並將其選為預設輸入法。
+2. 打開 **Trime > 配置 > 使用者資料夾**。本配置使用 `/storage/emulated/0/rime`（亦可寫作 `/sdcard/rime`）。將：
+   - `root/` 下的全部內容複製到用户資料夾；
+   - `opencc/` 下的全部內容複製到 `<用户資料夾>/opencc/`；
+   - `android/creatlach.trime.yaml` 複製為 `<用户資料夾>/creatlach.trime.yaml`；
+   - 私有字體檔複製到 `<用户資料夾>/fonts/`：`HanaMinB.ttf`、`ModernExtended-T-OT-italic-letter-only.otf` 及 `LokYuenMingHK_Regular_noeng.ttf`。
+3. 點擊 **部署**（Trime 頂部工具列的重新整理按鈕）。若 `default.custom.yaml` 尚未恢復所需方案，再到 **方案** 中選取它們。
+4. 打開 **鍵盤樣式**並設定：
+   - **主題**：`Creatlach`；
+   - **配色**：`Material Dark / Dubh`（如需淺色配色，可手動選擇 `Material Light / Liath`）；
+   - **跟隨系統設定主題色調**：打開。Creatlach 已用 `dark_scheme`、`light_scheme` 配對 `Material Dark / Dubh` 與 `Material Light / Liath`，Trime 可據此跟隨系統切換配色。
+5. 使用手勢導航的手機，請到 **高級** 打開 **忽略系統手勢插邊**，以免在 Creatlach 的底部間距之外再次疊加系統手勢安全區。若裝置確實需要該防誤觸空間，則保持關閉。
+
+設定完成後，請在任意文字框檢查：按鍵自訂字體已載入、候選注音顯示於候選字上方，以及快捷欄中有常駐的 `粵文`／`西文` 切換鍵。日後更新配置時，只需把有改動的檔案再次複製到同一用户資料夾並重新部署。Trime 更新通常會保留應用程式偏好；全新安裝後則需重新選擇上述主題及高級選項。
 
 ## 更新方法
 

@@ -1,6 +1,6 @@
 # Trime style settings
 
-config_version: "7.0.4"  # 20260127，第 225 次修改
+config_version: "7.0.8"  # 20260824，第 229 次修改
 name: Creatlach
 author: Ayaka <ayaka@mail.shn.hk>
 
@@ -8,7 +8,7 @@ style:
   # 1. 功能
   auto_caps: false
   candidate_use_cursor: true
-  comment_on_top: true
+  comment_position: top
   horizontal: true
   keyboards:
     - .default
@@ -25,19 +25,9 @@ style:
 
   # 2. 字体
   # For font files, see https://github.com/ayaka14732/MyRimeConfig-dev (private repo)
-  # text_font: LokYuenMingHK_Regular_noeng.ttf
-  text_font: latin.ttf
-  label_font: latin.ttf
-  # candidate_font: LokYuenMingHK_Regular_noeng.ttf
-  # comment_font: LokYuenMingHK_Regular_noeng.ttf
-  candidate_font: han.ttf
-  comment_font: comment.ttf
-  hanb_font: HanaMinB.ttf
-  latin_font: latin.ttf
-  key_font: ModernExtended-T-OT-italic-letter-only.otf
-  symbol_font: LokYuenMingHK_Regular_noeng.ttf
-  preview_font: latin.ttf
-  long_text_font: comment.ttf  # 剪贴板等可能包含大段文本使用的字体
+  hanb_font: [HanaMinB.ttf]
+  key_font: [ModernExtended-T-OT-italic-letter-only.otf]
+  symbol_font: [LokYuenMingHK_Regular_noeng.ttf]
 
   # 3. 尺寸
   text_size: 16
@@ -94,7 +84,7 @@ style:
   keyboard_padding: 0  # 竖屏模式下，屏幕左右两侧与键盘的距离（曲面屏减少误触）
   keyboard_padding_left: 0  # 竖屏模式下，左手键盘布局，屏幕左侧与键盘的距离
   keyboard_padding_right: 40  # 竖屏模式下，左手键盘布局，屏幕右侧与键盘的距离
-  keyboard_padding_bottom: 5  # 竖屏模式下，屏幕下边缘与键盘的距离（避免误触发全面屏手势）
+  keyboard_padding_bottom: 0  # 系统已为手势区保留边距，不再叠加主题 padding
   # keyboard_padding_bottom: 10  # 平板屏幕較大，應使用此設定
   keyboard_padding_land: 120  # 横屏模式下，屏幕左右两侧与键盘的距离（避免横屏按键过度拉伸变形）
   keyboard_padding_land_bottom: 0  # 横屏模式下，屏幕下侧与键盘的距离
@@ -124,6 +114,7 @@ fallback_colors:
 preset_color_schemes:
   default:
     name: "Material Dark / Dubh"
+    light_scheme: liath                     # 系统日间模式使用 Liath
     back_color: 0x263238                     # 深黑色
     comment_text_color: 0xa8adaf             # 较浅的灰色
     key_symbol_color: 0x80cbc4               # 浅青色
@@ -133,6 +124,7 @@ preset_color_schemes:
     transparent: 0x00ffffff
   liath:
     name: "Material Light / Liath"
+    dark_scheme: default                    # 系统夜间模式使用 Dubh
     back_color: 0xeceff1                     # 很淺的灰色
     comment_text_color: 0x5a666e             # 近黑色
     key_symbol_color: 0x80cbc4               # 浅青色
@@ -175,6 +167,17 @@ liquid_keyboard:
 
 android_keys:
   __include: trime:/android_keys
+
+tool_bar:
+  ascii_mode_button: &ascii_mode_button
+    foreground:
+      option_styles: [粵文, 西文]
+      font_size: 16
+      padding: 8
+    action: Mode_switch
+
+  # 依 Trime 作者的设计：将全局 ASCII 模式作为工具栏常驻按钮。
+  buttons: [*ascii_mode_button]
 
 preset_keys:
   __include: trime:/preset_keys
