@@ -1,6 +1,6 @@
 # Trime style settings
 
-config_version: "7.0.15"  # 20260824，第 236 次修改
+config_version: "7.0.16"  # 20260824，第 237 次修改
 name: Creatlach
 author: Ayaka <ayaka@mail.shn.hk>
 
@@ -23,7 +23,6 @@ style:
   reset_ascii_mode: false
   latin_locale: en_UK
   locale: zh_HK
-  speech_opencc_config: none  # 将语音输入的结果经过 OpenCC 转换一下再上屏，可以实现简繁转换等效果
 
   # 2. 字体
   # For font files, see https://github.com/ayaka14732/MyRimeConfig-dev (private repo)
