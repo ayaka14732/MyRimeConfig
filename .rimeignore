@@ -1,4 +1,5 @@
 /root/*.yaml
+/root/*.ico
 /root/essay.txt
 /root/essay-cantonese.txt
 !/root/jyut6ping3.custom.dict.yaml

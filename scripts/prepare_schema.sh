@@ -7,6 +7,7 @@ prepare_schema () {
     wget -q -O data.zip "https://github.com/$1/archive/refs/heads/$2.zip"
     unzip data.zip
     mv */*.yaml ../root/
+    ls */*.ico 1> /dev/null 2>&1 && mv */*.ico ../root/
     ls */*.txt 1> /dev/null 2>&1 && mv */*.txt ../root/
     [ -d */opencc ] && mv */opencc/* ../opencc/
     cd ..
@@ -27,9 +28,21 @@ prepare_schema sgalal/rime-kunyomi master
 prepare_schema sgalal/rime-symbolic master
 prepare_schema szc126/rime-liangfen main
 prepare_schema ayaka14732/rime-ayaka-v8 main
+prepare_schema saeziae/rime_nguphing master
 
 # delete recipe files
 rm -f root/*.recipe.yaml
+
+# delete unused files
+rm -f \
+    root/default.custom.yaml \
+    root/luna_pinyin_fluency.schema.yaml \
+    root/luna_pinyin_simp.schema.yaml \
+    root/luna_pinyin_tw.schema.yaml \
+    root/jyut6ping3_ipa.schema.yaml \
+    root/nguphin-yaehwei.schema.yaml \
+    root/nguphing-ipa.schema.yaml \
+    root/nguphing-syphiq.schema.yaml
 
 # opencc configs
 for name in t2hk t2jp t2s t2tw; do

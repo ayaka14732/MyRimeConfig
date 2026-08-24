@@ -20,8 +20,20 @@ call :prepare_schema sgalal/rime-kunyomi master || goto :error
 call :prepare_schema sgalal/rime-symbolic master || goto :error
 call :prepare_schema szc126/rime-liangfen main || goto :error
 call :prepare_schema ayaka14732/rime-ayaka-v8 main || goto :error
+call :prepare_schema saeziae/rime_nguphing master || goto :error
 
 del /q "root\*.recipe.yaml" 2>nul
+
+for %%F in (
+    default.custom.yaml
+    luna_pinyin_fluency.schema.yaml
+    luna_pinyin_simp.schema.yaml
+    luna_pinyin_tw.schema.yaml
+    jyut6ping3_ipa.schema.yaml
+    nguphin-yaehwei.schema.yaml
+    nguphing-ipa.schema.yaml
+    nguphing-syphiq.schema.yaml
+) do del /q "root\%%F" 2>nul
 
 for %%N in (t2hk t2jp t2s t2tw) do (
     curl -f -L -s -o "opencc\%%N.json" "https://raw.githubusercontent.com/BYVoid/OpenCC/master/data/config/%%N.json"
@@ -64,6 +76,10 @@ if not defined SRC (
 )
 
 move /Y "!SRC!\*.yaml" "root\" >nul 2>nul
+
+if exist "!SRC!\*.ico" (
+    move /Y "!SRC!\*.ico" "root\" >nul
+)
 
 if exist "!SRC!\*.txt" (
     move /Y "!SRC!\*.txt" "root\" >nul
