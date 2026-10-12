@@ -78,7 +78,6 @@ patch:
 3. 切換至 Rime，在 Fcitx 選單中按一下 **Deploy／部署**。在 KDE Wayland 下不要以重新啟動 Fcitx 的方式部署，以免失去由 KWin 傳入的輸入法連線。
 4. 驗收：
    - `~/.local/share/fcitx5/rime/build/jyut6ping3.schema.yaml` 已生成；
-   - `Ctrl+Space` 可切換至 Rime；
    - 按 `F4` 可看到粵拼方案及「粵文／西文」等開關；
    - 輸入 `caumou` 可看到本倉庫的自訂詞「湫霧」；
    - 分別在 Kate 及瀏覽器文字方塊中驗證候選視窗及輸入結果；
@@ -99,7 +98,3 @@ cp -a opencc/. ~/.local/share/fcitx5/rime/opencc/
 ```
 
 然後再次按一下 **Deploy／部署**；不要刪除 `*.userdb`、`installation.yaml`、`user.yaml`、`sync/` 或個人的 `default.custom.yaml`。
-
-- 本方案不會修改倉庫。
-- 預設以 `jyut6ping3` 作為唯一的頂層方案。
-- 本方案接受倉庫目前「每次下載各上游最新分支」的設計，因此建構結果不會固定於特定版本。
